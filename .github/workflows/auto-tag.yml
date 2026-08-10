@@ -13,7 +13,16 @@ jobs:
       - uses: actions/checkout@v4
       - id: version
         run: echo "v=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-      - uses: rickstaa/action-create-tag@v1
+      - id: check-tag
+        run: |
+          if git rev-parse "v${{ steps.version.outputs.v }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - if: steps.check-tag.outputs.exists == 'false'
+        uses: rickstaa/action-create-tag@v1
         with:
           tag: v${{ steps.version.outputs.v }}
-          tag_exists_error: false

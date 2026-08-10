@@ -1,0 +1,19 @@
+name: Auto Tag
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - id: version
+        run: echo "v=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+      - uses: rickstaa/action-create-tag@v1
+        with:
+          tag: v${{ steps.version.outputs.v }}
+          tag_exists_error: false

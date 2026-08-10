@@ -444,3 +444,35 @@ describe('accessControl middleware', () => {
     })
   })
 })
+
+describe('AccessControlExpressError', () => {
+  it('should extend Error', () => {
+    const err = new AccessControlExpressError(400, 'Bad Request')
+    expect(err).toBeInstanceOf(Error)
+    expect(err).toBeInstanceOf(AccessControlExpressError)
+  })
+
+  it('should set status and message properties', () => {
+    const err = new AccessControlExpressError(429, 'Too Many Requests')
+    expect(err.status).toBe(429)
+    expect(err.message).toBe('Too Many Requests')
+  })
+
+  it('should work with status 403', () => {
+    const err = new AccessControlExpressError(403, 'Forbidden')
+    expect(err.status).toBe(403)
+    expect(err.message).toBe('Forbidden')
+  })
+
+  it('should work with status 500', () => {
+    const err = new AccessControlExpressError(500, 'Internal Server Error')
+    expect(err.status).toBe(500)
+    expect(err.message).toBe('Internal Server Error')
+  })
+
+  it('should include stack trace', () => {
+    const err = new AccessControlExpressError(400, 'test')
+    expect(err.stack).toBeDefined()
+    expect(typeof err.stack).toBe('string')
+  })
+})

@@ -1,0 +1,13 @@
+{
+  "name": "@ecarrizo2/wardenauthz-express",
+  "version": "1.0.0",
+  "description": "Express middleware for WardenAuthz — authorization at the request level",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "dependencies": {
+    "@ecarrizo2/wardenauthz-js": "*"
+  },
+  "peerDependencies": {
+    "express": "^4.0.0"
+  }
+}

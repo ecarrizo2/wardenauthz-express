@@ -4,8 +4,14 @@
   "description": "Express middleware for WardenAuthz — authorization at the request level",
   "main": "index.js",
   "types": "index.d.ts",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@ecarrizo2/wardenauthz-js": "*"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   },
   "peerDependencies": {
     "express": "^4.0.0"

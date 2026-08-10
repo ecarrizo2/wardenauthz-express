@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: version
         run: echo "v=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
       - id: check-tag

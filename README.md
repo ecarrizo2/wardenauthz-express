@@ -1,5 +1,7 @@
 # WardenAuthz Express Middleware
 
+[![CI](https://github.com/ecarrizo2/wardenauthz-express/actions/workflows/ci.yml/badge.svg)](https://github.com/ecarrizo2/wardenauthz-express/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@ecarrizo2/wardenauthz-express)](https://www.npmjs.com/package/@ecarrizo2/wardenauthz-express) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Express middleware for [WardenAuthz](https://github.com/ecarrizo2/wardenauthz) — request-level authorization using the WardenAuthz Access Control API.
 
 ## Installation

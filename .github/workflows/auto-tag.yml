@@ -11,6 +11,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history + tags so the existence check below can see existing remote tags.
+          fetch-depth: 0
       - id: version
         run: echo "v=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
       - id: check-tag

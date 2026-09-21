@@ -11,7 +11,7 @@
     "@ecarrizo2/wardenauthz-js": "*"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^30.4.2"
   },
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
